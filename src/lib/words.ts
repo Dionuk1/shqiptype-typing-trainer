@@ -2,7 +2,7 @@ export type Dictionary = "standarde" | "kosove";
 
 export const DICTIONARIES: Record<Dictionary, { label: string; words: string[] }> = {
   standarde: {
-    label: "Shqipja Standarde",
+    label: "Standard",
     words: [
       "drita", "nata", "deti", "mali", "lumi", "qyteti", "fshati", "shtëpia", "libri", "fjala",
       "gjuha", "zemra", "mendja", "duart", "sytë", "ylli", "hëna", "dielli", "qielli", "toka",
@@ -22,7 +22,7 @@ export const DICTIONARIES: Record<Dictionary, { label: string; words: string[] }
     ],
   },
   kosove: {
-    label: "Shqipja e Kosovës",
+    label: "Kosovë",
     words: [
       "qika", "qka", "krejt", "meniherë", "përmeni", "hëne", "hëna", "erë", "era", "mirë",
       "mbremje", "mbrëmje", "shpia", "shtëpia", "gjithë", "gjith", "dreq", "hallall", "marshalla", "inaç",
@@ -53,4 +53,9 @@ export function generateWords(dictionary: Dictionary, count: number): string[] {
     result.push(bank[idx]!);
   }
   return result;
+}
+
+/** Maps ë→e and ç→c (both cases) for US-keyboard friendly typing. */
+export function simplifyAlbanian(word: string): string {
+  return word.replace(/ë/g, "e").replace(/Ë/g, "E").replace(/ç/g, "c").replace(/Ç/g, "C");
 }
