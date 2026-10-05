@@ -50,7 +50,7 @@ export function generateWords(dictionary: Dictionary, count: number): string[] {
     let idx = Math.floor(Math.random() * bank.length);
     if (idx === prev) idx = (idx + 1) % bank.length;
     prev = idx;
-    result.push(bank[idx]);
+    result.push(bank[idx]!);
   }
   return result;
 }
