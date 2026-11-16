@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { TypingTest } from "@/components/TypingTest";
+import { SupportSection } from "@/components/SupportSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,6 +32,7 @@ function Index() {
       <div className="pointer-events-none absolute top-1/3 -right-24 h-80 w-80 rounded-full bg-frost/10 blur-3xl animate-floaty2" />
       <div className="pointer-events-none absolute -bottom-24 left-8 h-72 w-72 rounded-full bg-sky/15 blur-3xl animate-floaty-slow" />
       <TypingTest />
+      <SupportSection />
     </div>
   );
 }
